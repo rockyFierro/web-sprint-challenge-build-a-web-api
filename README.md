@@ -45,7 +45,7 @@ Your finished project must include all of the following requirements:
 
 #### Environment Variables
 
-- [ ] Bring the port number from the `process.env` variable, falling back to `5000` if `process.env.PORT` is undefined.
+- [x] Bring the port number from the `process.env` variable, falling back to `5000` if `process.env.PORT` is undefined.
 
 #### Endpoints
 
