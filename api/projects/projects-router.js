@@ -71,5 +71,19 @@ router.put('/:id',
     }
   );
 
+  router.delete('/:id',
+  async (req, res) => {
+    try {
+      const projectID = await Projects.get(req.params.id);
+      if (!projectID) {
+        res.status(404).json({ message: 'unable to find projectID' });
+      } else {
+        await Projects.remove(req.params.id);
+        res.json(projectID);
+      }
+    } catch (error) {
+      res.status(500).send('unable to complete request').json({ stack: error.stack });
+    }
+  });
 module.exports = router;
 // Write your "projects" router here!
