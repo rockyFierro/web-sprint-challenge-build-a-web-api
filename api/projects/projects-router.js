@@ -85,5 +85,20 @@ router.put('/:id',
       res.status(500).send('unable to complete request').json({ stack: error.stack });
     }
   });
+
+  router.get('/:id/actions',
+  async (req, res) => {
+    try {
+      const project = await Projects.get(req.params.id);
+      if (!project) {
+        res.status(404).json({ message: 'unable to find project' });
+      } else {
+        res.json(project);
+      }
+    } catch (error) {
+      res.status(500).send('unable to complete request').json({ stack: error.stack });
+    }
+  });
+
 module.exports = router;
 // Write your "projects" router here!
